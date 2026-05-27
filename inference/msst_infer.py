@@ -337,7 +337,6 @@ class MSSeparator:
 		if self.output_format.lower() == "flac":
 			file = os.path.join(store_dir, file_name + ".flac")
 			sf.write(file, audio, sr, subtype=self.audio_params["flac_bit_depth"])
-
 		elif self.output_format.lower() == "mp3":
 			file = os.path.join(store_dir, file_name + ".mp3")
 			channels = audio.shape[1] if audio.ndim > 1 else 1
@@ -351,8 +350,6 @@ class MSSeparator:
 				 file],
 				input=audio.astype(np.float32).tobytes(), check=True, capture_output=True
 			)
-
-
 		else:
 			file = os.path.join(store_dir, file_name + ".wav")
 			sf.write(file, audio, sr, subtype=self.audio_params["wav_bit_depth"])

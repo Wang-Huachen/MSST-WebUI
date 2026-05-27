@@ -261,7 +261,6 @@ class VRSeparator:
 				 file],
 				input=audio.astype(np.float32).tobytes(), check=True, capture_output=True
 			)
-
 		else:
 			file = os.path.join(store_dir, file_name + ".wav")
 			sf.write(file, audio, sr, subtype=self.audio_params["wav_bit_depth"])
